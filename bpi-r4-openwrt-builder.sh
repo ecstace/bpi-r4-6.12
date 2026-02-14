@@ -5,7 +5,7 @@ rm -rf openwrt
 rm -rf mtk-openwrt-feeds
 
 git clone --branch openwrt-25.12 https://github.com/openwrt/openwrt.git openwrt
-cd openwrt; git checkout 324e157b4bf2fea54bd2608ab2af05066936e12f; cd -;		#apk: handle edge case when parsing .apk files
+cd openwrt; git checkout 20644af030672d74f978d77142c5267757af2efa; cd -;		#mediatek: add support for Keenetic/Netcraze (K/N)AP-630
 
 git clone --branch master https://git01.mediatek.com/openwrt/feeds/mtk-openwrt-feeds
 cd mtk-openwrt-feeds; git checkout 0d7dc2bd18d95a0b71d77931612a6905da8a89de; cd -;	#[openwrt-25.12][common][common][Remove patch reverting OpenWrt commit 82fec21]
@@ -27,20 +27,20 @@ bash ../mtk-openwrt-feeds/autobuild/unified/autobuild.sh filogic-mac80211-mt798x
 \cp -r ../my_files/wsdd2-Makefile feeds/packages/net/wsdd2/Makefile
 
 
-\cp -r ../my_files/sms-tool/ feeds/packages/utils/sms-tool
-\cp -r ../my_files/modemdata-main/ feeds/packages/utils/modemdata 
-\cp -r ../my_files/luci-app-modemdata-main/luci-app-modemdata/ feeds/luci/applications
-\cp -r ../my_files/luci-app-lite-watchdog/ feeds/luci/applications
-\cp -r ../my_files/luci-app-sms-tool-js-main/luci-app-sms-tool-js/ feeds/luci/applications
+#\cp -r ../my_files/sms-tool/ feeds/packages/utils/sms-tool
+#\cp -r ../my_files/modemdata-main/ feeds/packages/utils/modemdata 
+#\cp -r ../my_files/luci-app-modemdata-main/luci-app-modemdata/ feeds/luci/applications
+#\cp -r ../my_files/luci-app-lite-watchdog/ feeds/luci/applications
+#\cp -r ../my_files/luci-app-sms-tool-js-main/luci-app-sms-tool-js/ feeds/luci/applications
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 
 #\cp -r ../my_files/qmi.sh package/network/utils/uqmi/files/lib/netifd/proto/
 #chmod -R 755 package/network/utils/uqmi/files/lib/netifd/proto
-chmod -R 755 feeds/luci/applications/luci-app-modemdata/root
-chmod -R 755 feeds/luci/applications/luci-app-sms-tool-js/root
-chmod -R 755 feeds/packages/utils/modemdata/files/usr/share
+#chmod -R 755 feeds/luci/applications/luci-app-modemdata/root
+#chmod -R 755 feeds/luci/applications/luci-app-sms-tool-js/root
+#chmod -R 755 feeds/packages/utils/modemdata/files/usr/share
 
 \cp -r ../my_files/my_final_defconfig .config
 make defconfig
