@@ -5,7 +5,7 @@ rm -rf openwrt
 rm -rf mtk-openwrt-feeds
 
 git clone --branch openwrt-25.12 https://github.com/openwrt/openwrt.git openwrt
-cd openwrt; #git checkout 20644af030672d74f978d77142c5267757af2efa; cd -;		#mediatek: add support for Keenetic/Netcraze (K/N)AP-630
+cd openwrt; git checkout 29bfcadbc3890e059514bb07fafc71d81b8bc311; cd -;		#kernel: bump 6.12 to 6.12.71
 
 git clone --branch master https://git01.mediatek.com/openwrt/feeds/mtk-openwrt-feeds
 cd mtk-openwrt-feeds; git checkout 0d7dc2bd18d95a0b71d77931612a6905da8a89de; cd -;	#[openwrt-25.12][common][common][Remove patch reverting OpenWrt commit 82fec21]
