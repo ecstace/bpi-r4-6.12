@@ -13,7 +13,7 @@ cd mtk-openwrt-feeds; git checkout 0d7dc2bd18d95a0b71d77931612a6905da8a89de; cd 
 \cp -r my_files/w-defconfig mtk-openwrt-feeds/autobuild/unified/filogic/25.12/defconfig
 \cp -r my_files/1130-image-mediatek-filogic-add-bananapi-bpi-r4-pro-support.patch mtk-openwrt-feeds/25.12/patches-base
 \cp -r my_files/1133-image-mediatek-filogic-add-bananapi-bpi-r4-support.patch mtk-openwrt-feeds/25.12/patches-base
-#\cp -r my_files/999-sfp-10-additional-quirks.patch mtk-openwrt-feeds/25.12/files/target/linux/mediatek/patches-6.12
+\cp -r my_files/999-sfp-10-additional-quirks.patch mtk-openwrt-feeds/25.12/files/target/linux/mediatek/patches-6.12
 
 \cp -r my_files/9999-image-bpi-r4-sdcard.patch mtk-openwrt-feeds/25.12/patches-base
 
@@ -27,20 +27,20 @@ bash ../mtk-openwrt-feeds/autobuild/unified/autobuild.sh filogic-mac80211-mt798x
 \cp -r ../my_files/wsdd2-Makefile feeds/packages/net/wsdd2/Makefile
 
 
-\cp -r ../my_files/sms-tool/ feeds/packages/utils/sms-tool
-\cp -r ../my_files/modemdata-main/ feeds/packages/utils/modemdata 
-\cp -r ../my_files/luci-app-modemdata-main/luci-app-modemdata/ feeds/luci/applications
-\cp -r ../my_files/luci-app-lite-watchdog/ feeds/luci/applications
-\cp -r ../my_files/luci-app-sms-tool-js-main/luci-app-sms-tool-js/ feeds/luci/applications
+#\cp -r ../my_files/sms-tool/ feeds/packages/utils/sms-tool
+#\cp -r ../my_files/modemdata-main/ feeds/packages/utils/modemdata 
+#\cp -r ../my_files/luci-app-modemdata-main/luci-app-modemdata/ feeds/luci/applications
+#\cp -r ../my_files/luci-app-lite-watchdog/ feeds/luci/applications
+#\cp -r ../my_files/luci-app-sms-tool-js-main/luci-app-sms-tool-js/ feeds/luci/applications
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 
 \cp -r ../my_files/qmi.sh package/network/utils/uqmi/files/lib/netifd/proto/
 chmod -R 755 package/network/utils/uqmi/files/lib/netifd/proto
-chmod -R 755 feeds/luci/applications/luci-app-modemdata/root
-chmod -R 755 feeds/luci/applications/luci-app-sms-tool-js/root
-chmod -R 755 feeds/packages/utils/modemdata/files/usr/share
+#chmod -R 755 feeds/luci/applications/luci-app-modemdata/root
+#chmod -R 755 feeds/luci/applications/luci-app-sms-tool-js/root
+#chmod -R 755 feeds/packages/utils/modemdata/files/usr/share
 
 \cp -r ../my_files/my_final_defconfig .config
 make defconfig
