@@ -5,7 +5,7 @@ rm -rf openwrt
 rm -rf mtk-openwrt-feeds
 
 git clone --branch openwrt-25.12 https://github.com/openwrt/openwrt.git openwrt
-cd openwrt; git checkout e2089a5d3ee7782c253c9a64787a7833b4856d0c; cd -;		#hostapd: fix dealing with required interface restart in AP+STA mode
+cd openwrt; git checkout 17d625c858e5da90079080061949da09face9016; cd -;		#ramips: remove obsolete SPI flash nodes after kernel fix
 
 git clone --branch master https://git01.mediatek.com/openwrt/feeds/mtk-openwrt-feeds
 cd mtk-openwrt-feeds; git checkout 0d7dc2bd18d95a0b71d77931612a6905da8a89de; cd -;	#[openwrt-25.12][common][common][Remove patch reverting OpenWrt commit 82fec21]
