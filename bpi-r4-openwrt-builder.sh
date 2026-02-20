@@ -5,7 +5,7 @@ rm -rf openwrt
 rm -rf mtk-openwrt-feeds
 
 git clone --branch openwrt-25.12 https://github.com/openwrt/openwrt.git openwrt
-cd openwrt; git checkout 9d78b2f53c48ddbc2f978e3365af183c69a33c84; cd -;		#hostapd: fix EAP-PWD in experimental hostapd-radius server
+cd openwrt; git checkout e2089a5d3ee7782c253c9a64787a7833b4856d0c; cd -;		#hostapd: fix dealing with required interface restart in AP+STA mode
 
 git clone --branch master https://git01.mediatek.com/openwrt/feeds/mtk-openwrt-feeds
 cd mtk-openwrt-feeds; git checkout 0d7dc2bd18d95a0b71d77931612a6905da8a89de; cd -;	#[openwrt-25.12][common][common][Remove patch reverting OpenWrt commit 82fec21]
