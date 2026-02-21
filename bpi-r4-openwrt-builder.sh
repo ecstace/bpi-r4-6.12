@@ -4,7 +4,7 @@ set -euo pipefail
 rm -rf openwrt
 rm -rf mtk-openwrt-feeds
 
-git clone --branch openwrt-25.12 https://github.com/ecstace/openwrt.git openwrt
+git clone --branch openwrt-25.12 https://github.com/ecstace/openwrt openwrt
 cd openwrt; git checkout 17d625c858e5da90079080061949da09face9016; cd -;		#ramips: remove obsolete SPI flash nodes after kernel fix
 
 git clone --branch master https://github.com/ecstace/mtk-openwrt-feeds
