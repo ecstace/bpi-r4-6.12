@@ -4,16 +4,16 @@ set -euo pipefail
 rm -rf openwrt
 rm -rf mtk-openwrt-feeds
 
-git clone --branch openwrt-25.12 https://github.com/ecstace/openwrt openwrt
-cd openwrt; git checkout 17d625c858e5da90079080061949da09face9016; cd -;		#ramips: remove obsolete SPI flash nodes after kernel fix
+git clone --branch openwrt-25.12 https://github.com/openwrt/openwrt.git openwrt
+cd openwrt; git checkout dbb6f0b547960ec489ca50ef24d99885b2595b16; cd -;		#mediatek: TP-Link EAP683-UR support
 
-git clone --branch master https://github.com/ecstace/mtk-openwrt-feeds
-cd mtk-openwrt-feeds; git checkout 0d7dc2bd18d95a0b71d77931612a6905da8a89de; cd -;	#[openwrt-25.12][common][common][Remove patch reverting OpenWrt commit 82fec21]
+git clone --branch master https://git01.mediatek.com/openwrt/feeds/mtk-openwrt-feeds
+cd mtk-openwrt-feeds; git checkout ff9029576c3c07cdeed9dda8de7f8e9d8f996dcd; cd -;	#[kernel-6.12][common][eth][Fix patch conflict issue]
 
 \cp -r my_files/w-defconfig mtk-openwrt-feeds/autobuild/unified/filogic/25.12/defconfig
 \cp -r my_files/1130-image-mediatek-filogic-add-bananapi-bpi-r4-pro-support.patch mtk-openwrt-feeds/25.12/patches-base
 \cp -r my_files/1133-image-mediatek-filogic-add-bananapi-bpi-r4-support.patch mtk-openwrt-feeds/25.12/patches-base
-#\cp -r my_files/999-sfp-10-additional-quirks.patch mtk-openwrt-feeds/25.12/files/target/linux/mediatek/patches-6.12
+\cp -r my_files/999-sfp-10-additional-quirks.patch mtk-openwrt-feeds/25.12/files/target/linux/mediatek/patches-6.12
 
 \cp -r my_files/9999-image-bpi-r4-sdcard.patch mtk-openwrt-feeds/25.12/patches-base
 
