@@ -5,10 +5,10 @@ rm -rf openwrt
 rm -rf mtk-openwrt-feeds
 
 git clone --branch openwrt-25.12 https://github.com/openwrt/openwrt.git openwrt
-cd openwrt; git checkout c2fe6ca16d0e6c9ec31da709d44263efdf12a3c1; cd -;		#OpenWrt v25.12.0: revert to branch defaults
+cd openwrt; git checkout 34ae6ba2d861e710e3c130c95cdb7eb4a1286121; cd -;		#procd: update to Git HEAD (2026-03-11)
 
 git clone --branch master https://git01.mediatek.com/openwrt/feeds/mtk-openwrt-feeds
-cd mtk-openwrt-feeds; git checkout b0fefe65a28d5a5b938c9c197d6bbe729484ffef; cd -;	#[kernel-5.4/6.12][mt7988][eth][linux-firmware: mediatek: Revert firmware wrongly updated]
+cd mtk-openwrt-feeds; git checkout 4853d940449dd79492b7cfd4761467a625c92bdf; cd -;	#[openwrt-25][common][bsp][Fix parallel downloading of download.sh]
 
 \cp -r my_files/999-sfp-10-additional-quirks.patch mtk-openwrt-feeds/25.12/files/target/linux/mediatek/patches-6.12
 
@@ -20,20 +20,20 @@ cd mtk-openwrt-feeds; git checkout b0fefe65a28d5a5b938c9c197d6bbe729484ffef; cd 
 cd openwrt
 bash ../mtk-openwrt-feeds/autobuild/unified/autobuild.sh filogic-mac80211-mt798x_rfb-wifi7_nic prepare
 
-\cp -r ../my_files/sms-tool/ feeds/packages/utils/sms-tool
-\cp -r ../my_files/modemdata-main/ feeds/packages/utils/modemdata 
-\cp -r ../my_files/luci-app-modemdata-main/luci-app-modemdata/ feeds/luci/applications
-\cp -r ../my_files/luci-app-lite-watchdog/ feeds/luci/applications
-\cp -r ../my_files/luci-app-sms-tool-js-main/luci-app-sms-tool-js/ feeds/luci/applications
+#\cp -r ../my_files/sms-tool/ feeds/packages/utils/sms-tool
+#\cp -r ../my_files/modemdata-main/ feeds/packages/utils/modemdata 
+#\cp -r ../my_files/luci-app-modemdata-main/luci-app-modemdata/ feeds/luci/applications
+#\cp -r ../my_files/luci-app-lite-watchdog/ feeds/luci/applications
+#\cp -r ../my_files/luci-app-sms-tool-js-main/luci-app-sms-tool-js/ feeds/luci/applications
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 
-\cp -r ../my_files/qmi.sh package/network/utils/uqmi/files/lib/netifd/proto/
-chmod -R 755 package/network/utils/uqmi/files/lib/netifd/proto
-chmod -R 755 feeds/luci/applications/luci-app-modemdata/root
-chmod -R 755 feeds/luci/applications/luci-app-sms-tool-js/root
-chmod -R 755 feeds/packages/utils/modemdata/files/usr/share
+#\cp -r ../my_files/qmi.sh package/network/utils/uqmi/files/lib/netifd/proto/
+#chmod -R 755 package/network/utils/uqmi/files/lib/netifd/proto
+#chmod -R 755 feeds/luci/applications/luci-app-modemdata/root
+#chmod -R 755 feeds/luci/applications/luci-app-sms-tool-js/root
+#chmod -R 755 feeds/packages/utils/modemdata/files/usr/share
 
 #\cp -r ../my_files/my_final_defconfig .config
 \cp -r ../configs/config.hnat.la .config
