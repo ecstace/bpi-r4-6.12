@@ -5,10 +5,10 @@ rm -rf openwrt
 rm -rf mtk-openwrt-feeds
 
 git clone --branch openwrt-25.12 https://github.com/openwrt/openwrt.git openwrt
-cd openwrt; git checkout b2685cef6a33baf933b0936c586cbf04c3d60ca4; cd -;		#apk: add help text for 'apk add --force-reinstall'
+cd openwrt; git checkout 00dcdd7451487dfb63c6c3bbd649a547c76e1a13; cd -;		#firmware: Add support for Airoha EN7581/AN7583 NPU variant firmware
 
 git clone --branch master https://git01.mediatek.com/openwrt/feeds/mtk-openwrt-feeds
-cd mtk-openwrt-feeds; git checkout 26f8850c414d1c340a8d801e122e3e03efdb96d3; cd -;	#[kernel][common][eth][Update Airoha AN8811HB 2.5G PHY driver to v1.0.0]
+cd mtk-openwrt-feeds; git checkout 95d10b2875cde36924023380ac098dd5664dcdf3; cd -;	#[openwrt-25][common][doc][Update documentation for OpenWrt 25.12]
 
 \cp -r my_files/feed_revision mtk-openwrt-feeds/autobuild/unified/
 
