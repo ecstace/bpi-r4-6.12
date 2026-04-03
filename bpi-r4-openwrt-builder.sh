@@ -5,10 +5,10 @@ rm -rf openwrt
 rm -rf mtk-openwrt-feeds
 
 git clone --branch openwrt-25.12 https://github.com/openwrt/openwrt.git openwrt
-cd openwrt; git checkout 00dcdd7451487dfb63c6c3bbd649a547c76e1a13; cd -;		#firmware: Add support for Airoha EN7581/AN7583 NPU variant firmware
+cd openwrt; git checkout 57fe3e077e3a89af839a3e5ca1cbce754eb1e3e7; cd -;		#mediatek: filogic: ASUS RT-AX52 PRO support
 
 git clone --branch master https://git01.mediatek.com/openwrt/feeds/mtk-openwrt-feeds
-cd mtk-openwrt-feeds; git checkout 95d10b2875cde36924023380ac098dd5664dcdf3; cd -;	#[openwrt-25][common][doc][Update documentation for OpenWrt 25.12]
+cd mtk-openwrt-feeds; git checkout 399c498c68daf87496d4078645c3acb09bb56575; cd -;	#[openwrt-master][common][bsp][Convert filogic-extra.mk patches into the actual file]
 
 \cp -r my_files/feed_revision mtk-openwrt-feeds/autobuild/unified/
 
